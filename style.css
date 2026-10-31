@@ -1,0 +1,39 @@
+body {
+  background-color: lightyellow;
+  font-family: Arial, sans-serif;
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 20px;
+  line-height: 1.6;
+}
+
+h1 { color: blue; }
+h2 { color: green; }
+
+img {
+  max-width: 100%;
+  border: 1px solid #ccc;
+}
+
+table {
+  border-collapse: collapse;
+  margin: 15px 0;
+  background-color: white;
+}
+
+th, td {
+  border: 1px solid #999;
+  padding: 8px 14px;
+  text-align: center;
+}
+
+th {
+  background-color: #d9ead3;
+}
+
+.tip {
+  background-color: #e8f4ff;
+  border-left: 5px solid blue;
+  padding: 10px 15px;
+  margin: 15px 0;
+}
