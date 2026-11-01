@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Lesson 3: Cleaning data</title>
+  <meta name="description" content="Learn how to clean data in SPSS: missing values, recoding and computing new variables.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <p><a href="index.html">← Back to home</a></p>
+
+  <h1>Lesson 3: Cleaning data</h1>
+  <p>Real data is messy. Before any analysis, you must check for mistakes, define missing values and prepare your variables.</p>
+
+  <h2>What you will learn</h2>
+  <ul>
+    <li>How to define missing values</li>
+    <li>How to recode a variable</li>
+    <li>How to compute a new variable</li>
+    <li>How to find duplicate cases</li>
+  </ul>
+
+  <h2>Step 1: Look at your data first</h2>
+  <ol>
+    <li>Click <strong>Analyze</strong> → <strong>Descriptive Statistics</strong> → <strong>Frequencies</strong>.</li>
+    <li>Move your variables across and click <strong>OK</strong>.</li>
+    <li>Look for impossible values, such as an age of 200 or a score of 999.</li>
+  </ol>
+
+  <h2>Step 2: Define missing values</h2>
+  <p>Many surveys use a code like 99 for "no answer". SPSS must know this is not a real value.</p>
+  <ol>
+    <li>Go to <strong>Variable View</strong>.</li>
+    <li>Click the <strong>Missing</strong> cell of your variable, then the small <strong>...</strong> button.</li>
+    <li>Choose <strong>Discrete missing values</strong>, type <strong>99</strong>, and click <strong>OK</strong>.</li>
+  </ol>
+
+  <div class="tip">
+    <strong>Tip:</strong> Never delete a whole row just because one answer is missing. Mark it as missing instead.
+  </div>
+
+  <h2>Step 3: Recode a variable</h2>
+  <p>Example: turn Score into groups (1 = Low, 2 = High).</p>
+  <ol>
+    <li>Click <strong>Transform</strong> → <strong>Recode into Different Variables</strong>.</li>
+    <li>Move <strong>Score</strong> to the box, and type a new name such as <strong>Score_Group</strong>. Click <strong>Change</strong>.</li>
+    <li>Click <strong>Old and New Values</strong> and enter your ranges, for example 0 to 69 becomes 1, and 70 to 100 becomes 2.</li>
+    <li>Click <strong>Continue</strong>, then <strong>OK</strong>.</li>
+  </ol>
+
+  <div class="tip">
+    <strong>Tip:</strong> Always recode into a <em>different</em> variable. That way your original data stays safe.
+  </div>
+
+  <h2>Step 4: Compute a new variable</h2>
+  <p>Example: the average of several questionnaire items.</p>
+  <ol>
+    <li>Click <strong>Transform</strong> → <strong>Compute Variable</strong>.</li>
+    <li>In <strong>Target Variable</strong>, type the new name, for example <strong>Total_Score</strong>.</li>
+    <li>In <strong>Numeric Expression</strong>, type a formula such as <strong>MEAN(Q1, Q2, Q3)</strong>.</li>
+    <li>Click <strong>OK</strong>.</li>
+  </ol>
+
+  <h2>Step 5: Find duplicate cases</h2>
+  <ol>
+    <li>Click <strong>Data</strong> → <strong>Identify Duplicate Cases</strong>.</li>
+    <li>Move the ID variable (for example Student) to the box.</li>
+    <li>Click <strong>OK</strong>. SPSS adds a column marking duplicates.</li>
+  </ol>
+
+  <h2>Cleaning checklist</h2>
+  <ul>
+    <li>Checked every variable with Frequencies</li>
+    <li>Defined all missing values</li>
+    <li>Fixed or removed impossible values</li>
+    <li>Recoded into new variables, not the originals</li>
+    <li>Checked for duplicates</li>
+    <li>Saved a clean copy of the file</li>
+  </ul>
+
+  <h2>Practice</h2>
+  <p>Use your Lesson 1 data. Create a variable called <strong>Pass</strong> where a score of 70 or more is 1 and anything lower is 0.</p>
+
+  <hr>
+  <p><a href="lesson2.html">← Lesson 2</a> | <a href="index.html">Home</a></p>
+</body>
+</html>
