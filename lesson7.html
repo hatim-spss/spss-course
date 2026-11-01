@@ -1,0 +1,88 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Lesson 7: Paired samples t-test</title>
+  <meta name="description" content="Learn how to run and read a paired samples t-test in SPSS for before-and-after data.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <p><a href="index.html">← Back to home</a></p>
+
+  <h1>Lesson 7: Paired samples t-test</h1>
+  <p>This test compares two measurements from the <strong>same people</strong>, for example a score before and after a training programme.</p>
+
+  <h2>What you will learn</h2>
+  <ul>
+    <li>The difference between paired and independent tests</li>
+    <li>How to set up your data</li>
+    <li>How to run and read the test</li>
+    <li>How to write up the result</li>
+  </ul>
+
+  <h2>Paired or independent?</h2>
+  <table>
+    <tr>
+      <th>Situation</th>
+      <th>Test</th>
+    </tr>
+    <tr><td>Same students, before and after</td><td>Paired samples t-test</td></tr>
+    <tr><td>Two different groups of students</td><td>Independent samples t-test</td></tr>
+  </table>
+
+  <h2>Step 1: Set up your data</h2>
+  <p>Each student is one row, with two columns:</p>
+  <table>
+    <tr>
+      <th>Student</th>
+      <th>Pre_Score</th>
+      <th>Post_Score</th>
+    </tr>
+    <tr><td>1</td><td>60</td><td>68</td></tr>
+    <tr><td>2</td><td>55</td><td>63</td></tr>
+    <tr><td>3</td><td>70</td><td>74</td></tr>
+  </table>
+
+  <h2>Step 2: Run the test</h2>
+  <ol>
+    <li>Click <strong>Analyze</strong> → <strong>Compare Means</strong> → <strong>Paired-Samples T Test</strong>.</li>
+    <li>Move <strong>Pre_Score</strong> to <strong>Variable 1</strong> and <strong>Post_Score</strong> to <strong>Variable 2</strong> of Pair 1.</li>
+    <li>Click <strong>OK</strong>.</li>
+  </ol>
+
+  <h2>Step 3: Read the output</h2>
+  <p>SPSS gives you several tables. These matter most:</p>
+  <ul>
+    <li><strong>Paired Samples Statistics:</strong> the mean before and after.</li>
+    <li><strong>Paired Samples Test:</strong> the mean difference, t, df and Sig. (2-tailed).</li>
+  </ul>
+
+  <table>
+    <tr>
+      <th>Pair</th>
+      <th>Mean difference</th>
+      <th>t</th>
+      <th>df</th>
+      <th>Sig. (2-tailed)</th>
+    </tr>
+    <tr><td>Pre - Post</td><td>-6.20</td><td>-4.18</td><td>29</td><td>.000</td></tr>
+  </table>
+  <p><em>Example output with made-up numbers.</em></p>
+
+  <div class="tip">
+    <strong>Tip:</strong> Newer SPSS versions show a one-sided and a two-sided p. Use the <strong>Two-Sided p</strong> unless you have a reason not to. If SPSS shows .000, report it as p &lt; .001.
+  </div>
+
+  <h2>How to report it (APA style)</h2>
+  <p>Scores increased significantly from before training (M = 61.5, SD = 8.2) to after training (M = 67.7, SD = 7.9), t(29) = -4.18, p &lt; .001.</p>
+
+  <h2>Assumption to check</h2>
+  <p>The <strong>differences</strong> between the two scores should be roughly normal. Compute a new variable (Post_Score minus Pre_Score) and check it with Explore, as in Lesson 5.</p>
+
+  <h2>Practice</h2>
+  <p>Enter the three students above, then add 17 more of your own. Run the paired t-test. Did the scores change significantly?</p>
+
+  <hr>
+  <p><a href="lesson6.html">← Lesson 6</a> | <a href="index.html">Home</a></p>
+</body>
+</html>

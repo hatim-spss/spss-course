@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Lesson 5: Checking normality</title>
+  <meta name="description" content="Learn how to check if your data is normally distributed in SPSS using Explore, Shapiro-Wilk, histograms and Q-Q plots.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <p><a href="index.html">← Back to home</a></p>
+
+  <h1>Lesson 5: Checking normality</h1>
+  <p>Many tests (t-tests, ANOVA, correlation) assume your numeric data follows a bell-shaped curve, called a normal distribution. Before using them, you should check.</p>
+
+  <h2>What you will learn</h2>
+  <ul>
+    <li>Why normality matters</li>
+    <li>How to run the Explore command</li>
+    <li>How to read the Shapiro-Wilk test</li>
+    <li>How to read a histogram and Q-Q plot</li>
+  </ul>
+
+  <h2>Step 1: Run Explore</h2>
+  <ol>
+    <li>Click <strong>Analyze</strong> → <strong>Descriptive Statistics</strong> → <strong>Explore</strong>.</li>
+    <li>Move <strong>Score</strong> into <strong>Dependent List</strong>.</li>
+    <li>Click <strong>Plots</strong>, tick <strong>Normality plots with tests</strong> and <strong>Histogram</strong>, then click <strong>Continue</strong>.</li>
+    <li>Click <strong>OK</strong>.</li>
+  </ol>
+
+  <h2>Step 2: Read the Tests of Normality table</h2>
+  <table>
+    <tr>
+      <th>Test</th>
+      <th>Statistic</th>
+      <th>df</th>
+      <th>Sig.</th>
+    </tr>
+    <tr><td>Kolmogorov-Smirnov</td><td>.11</td><td>40</td><td>.200</td></tr>
+    <tr><td>Shapiro-Wilk</td><td>.97</td><td>40</td><td>.354</td></tr>
+  </table>
+  <p><em>Example output with made-up numbers.</em></p>
+
+  <h2>The rule</h2>
+  <ul>
+    <li><strong>Sig. greater than .05:</strong> the data is not significantly different from normal. You can assume normality.</li>
+    <li><strong>Sig. less than .05:</strong> the data is not normal. Consider a non-parametric test.</li>
+  </ul>
+
+  <div class="tip">
+    <strong>Tip:</strong> Use <strong>Shapiro-Wilk</strong> for small samples (under about 50). It is the more reliable one.
+  </div>
+
+  <h2>Step 3: Look at the pictures</h2>
+  <ul>
+    <li><strong>Histogram:</strong> roughly a bell shape, centred, with no big skew to one side.</li>
+    <li><strong>Normal Q-Q plot:</strong> the dots should follow the diagonal line closely.</li>
+    <li><strong>Skewness:</strong> in the Descriptives table, values between -1 and +1 are usually fine.</li>
+  </ul>
+
+  <h2>What if my data is not normal?</h2>
+  <table>
+    <tr>
+      <th>Parametric test</th>
+      <th>Non-parametric alternative</th>
+    </tr>
+    <tr><td>Independent samples t-test</td><td>Mann-Whitney U</td></tr>
+    <tr><td>Paired samples t-test</td><td>Wilcoxon signed-rank</td></tr>
+    <tr><td>One-way ANOVA</td><td>Kruskal-Wallis</td></tr>
+    <tr><td>Pearson correlation</td><td>Spearman correlation</td></tr>
+  </table>
+
+  <div class="tip">
+    <strong>Tip:</strong> With very small samples, normality tests have little power. Always look at the charts too, not only the p-value.
+  </div>
+
+  <h2>Practice</h2>
+  <p>Run Explore on Age and Score. Is each one normal? How do you know?</p>
+
+  <hr>
+  <p><a href="lesson4.html">← Lesson 4</a> | <a href="index.html">Home</a> | <a href="lesson6.html">Lesson 6 →</a></p>
+</body>
+</html>
