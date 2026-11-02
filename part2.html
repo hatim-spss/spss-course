@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Part 2: Parametric and non-parametric tests in SPSS</title>
+  <meta name="description" content="Every common SPSS test in one place: t-tests, ANOVA, correlation, regression, Mann-Whitney, Wilcoxon, Kruskal-Wallis, Friedman, Spearman and chi-square.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <p><a href="index.html">← Back to home</a></p>
+
+  <h1>Part 2: Testing your data</h1>
+  <p>Tests fall into two families. <strong>Parametric</strong> tests assume numeric data that is roughly normal (check with <a href="lesson5.html">Lesson 5</a>). <strong>Non-parametric</strong> tests make fewer assumptions and suit non-normal, ranked or categorical data.</p>
+
+  <h2>Which test do I use?</h2>
+  <table>
+    <tr><th>Goal</th><th>Parametric</th><th>Non-parametric</th></tr>
+    <tr><td>Compare one group to a known value</td><td>One-sample t-test</td><td>Wilcoxon signed-rank (one sample)</td></tr>
+    <tr><td>Compare 2 separate groups</td><td>Independent t-test</td><td>Mann-Whitney U</td></tr>
+    <tr><td>Compare 2 measurements, same people</td><td>Paired t-test</td><td>Wilcoxon signed-rank</td></tr>
+    <tr><td>Compare 3+ separate groups</td><td>One-way ANOVA</td><td>Kruskal-Wallis</td></tr>
+    <tr><td>Compare 3+ measurements, same people</td><td>Repeated measures ANOVA</td><td>Friedman</td></tr>
+    <tr><td>Two factors at once</td><td>Two-way ANOVA</td><td>-</td></tr>
+    <tr><td>Relationship between 2 numeric variables</td><td>Pearson correlation</td><td>Spearman correlation</td></tr>
+    <tr><td>Predict an outcome</td><td>Linear regression</td><td>-</td></tr>
+    <tr><td>Relationship between 2 categorical variables</td><td>-</td><td>Chi-square (Fisher's exact)</td></tr>
+    <tr><td>Categorical, same people, before and after</td><td>-</td><td>McNemar</td></tr>
+  </table>
+
+  <h2>Contents</h2>
+  <p><strong>Parametric:</strong>
+    <a href="#one-sample">One-sample t</a> |
+    <a href="lesson6.html">Independent t</a> |
+    <a href="lesson7.html">Paired t</a> |
+    <a href="#anova">One-way ANOVA</a> |
+    <a href="#rm-anova">Repeated measures ANOVA</a> |
+    <a href="#two-way">Two-way ANOVA</a> |
+    <a href="#pearson">Pearson</a> |
+    <a href="#regression">Regression</a></p>
+  <p><strong>Non-parametric:</strong>
+    <a href="#mann-whitney">Mann-Whitney U</a> |
+    <a href="#wilcoxon">Wilcoxon</a> |
+    <a href="#kruskal">Kruskal-Wallis</a> |
+    <a href="#friedman">Friedman</a> |
+    <a href="#spearman">Spearman</a> |
+    <a href="#chi-square">Chi-square</a> |
+    <a href="#mcnemar">McNemar</a></p>
+
+  <h2>PART A: PARAMETRIC TESTS</h2>
+  <div class="tip"><strong>Assumptions for all of these:</strong> numeric outcome, roughly normal data, independent observations (except the repeated tests). If normality fails, use the non-parametric partner in Part B.</div>
+
+  <h3 id="one-sample">1. One-sample t-test</h3>
+  <p><strong>Use when:</strong> you compare one group's average to a known value (for example, is the class average different from 50?).</p>
+  <ol>
+    <li><strong>Analyze</strong> → <strong>Compare Means</strong> → <strong>One-Sample T Test</strong>.</li>
+    <li>Move your variable to <strong>Test Variable(s)</strong>, type the known value in <strong>Test Value</strong>, click <strong>OK</strong>.</li>
+  </ol>
+  <p><strong>Read:</strong> Sig. (2-tailed) below .05 means the average differs from the test value.</p>
+  <p><strong>Report:</strong> The mean score (M = __, SD = __) differed significantly from 50, t(df) = __, p = __.</p>
+
+  <h3>2 and 3. Independent and paired t-tests</h3>
+  <p>See <a href="lesson6.html">Lesson 6</a> and <a href="lesson7.html">Lesson 7</a>.</p>
+
+  <h3 id="anova">4. One-way ANOVA</h3>
+  <p><strong>Use when:</strong> you compare the average of 3 or more separate groups.</p>
+  <ol>
+    <li><strong>Analyze</strong> → <strong>Compare Means</strong> → <strong>One-Way ANOVA</strong>.</li>
+    <li>Outcome into <strong>Dependent List</strong>, grouping variable into <strong>Factor</strong>.</li>
+    <li>Click <strong>Options</strong>: tick <strong>Descriptive</strong>, <strong>Homogeneity of variance test</strong> and <strong>Welch</strong>. Continue.</li>
+    <li>Click <strong>Post Hoc</strong>: tick <strong>Tukey</strong>. Continue, then <strong>OK</strong>.</li>
+  </ol>
+  <p><strong>Read:</strong></p>
+  <ul>
+    <li><strong>Levene's test Sig. above .05:</strong> use the normal ANOVA table. Below .05: use the Welch result.</li>
+    <li><strong>ANOVA Sig. below .05:</strong> at least one group differs.</li>
+    <li>Then use the <strong>Post Hoc (Tukey)</strong> table to see which groups differ.</li>
+  </ul>
+  <p><strong>Report:</strong> There was a significant difference between groups, F(df between, df within) = __, p = __.</p>
+  <div class="tip"><strong>Tip:</strong> Only run post hoc tests if the ANOVA itself is significant.</div>
+
+  <h3 id="rm-anova">5. Repeated measures ANOVA</h3>
+  <p><strong>Use when:</strong> the same people are measured 3 or more times (for example, week 1, week 4, week 8).</p>
+  <ol>
+    <li>Data layout: one row per person, one column per time point.</li>
+    <li><strong>Analyze</strong> → <strong>General Linear Model</strong> → <strong>Repeated Measures</strong>.</li>
+    <li>Type a factor name (for example Time), enter the number of levels, click <strong>Add</strong>, then <strong>Define</strong>.</li>
+    <li>Move your time columns into <strong>Within-Subjects Variables</strong>.</li>
+    <li>Click <strong>Options</strong>: tick <strong>Descriptive statistics</strong> and <strong>Estimates of effect size</strong>. Continue, then <strong>OK</strong>.</li>
+  </ol>
+  <p><strong>Read:</strong></p>
+  <ul>
+    <li><strong>Mauchly's test Sig. above .05:</strong> use the Sphericity Assumed row.</li>
+    <li><strong>Mauchly's Sig. below .05:</strong> use the Greenhouse-Geisser row.</li>
+    <li><strong>Sig. below .05</strong> in Tests of Within-Subjects Effects means scores changed over time.</li>
+  </ul>
+  <p><strong>Report:</strong> Scores changed significantly over time, F(df, df error) = __, p = __, partial η² = __.</p>
+
+  <h3 id="two-way">6. Two-way ANOVA</h3>
+  <p><strong>Use when:</strong> you have one numeric outcome and <strong>two</strong> grouping factors (for example, Gender and Teaching method).</p>
+  <ol>
+    <li><strong>Analyze</strong> → <strong>General Linear Model</strong> → <strong>Univariate</strong>.</li>
+    <li>Outcome into <strong>Dependent Variable</strong>, both factors into <strong>Fixed Factor(s)</strong>.</li>
+    <li><strong>Plots</strong>: put one factor on the horizontal axis and the other in Separate Lines, click <strong>Add</strong>, Continue.</li>
+    <li><strong>Options</strong>: tick <strong>Descriptive statistics</strong>, <strong>Estimates of effect size</strong>, <strong>Homogeneity tests</strong>. Continue, then <strong>OK</strong>.</li>
+  </ol>
+  <p><strong>Read:</strong> Check the <strong>interaction</strong> row first (Factor1 * Factor2). If it is significant, the effect of one factor depends on the other, so interpret the plot. If not, read each main effect.</p>
+  <div class="tip"><strong>Tip:</strong> Adding a numeric <strong>Covariate</strong> in the same window turns this into an ANCOVA.</div>
+
+  <h3 id="pearson">7. Pearson correlation</h3>
+  <p><strong>Use when:</strong> you test the linear relationship between two numeric variables.</p>
+  <ol>
+    <li><strong>Analyze</strong> → <strong>Correlate</strong> → <strong>Bivariate</strong>.</li>
+    <li>Move both variables across, tick <strong>Pearson</strong> and <strong>Two-tailed</strong>, click <strong>OK</strong>.</li>
+  </ol>
+  <table>
+    <tr><th>r (ignore the sign)</th><th>Strength</th></tr>
+    <tr><td>.10</td><td>Small</td></tr>
+    <tr><td>.30</td><td>Medium</td></tr>
+    <tr><td>.50 or more</td><td>Large</td></tr>
+  </table>
+  <p><strong>Read:</strong> The sign shows direction (positive: both rise together; negative: one rises as the other falls). Sig. below .05 means the relationship is significant.</p>
+  <p><strong>Report:</strong> Age and score were positively correlated, r(df) = __, p = __.</p>
+  <div class="tip"><strong>Tip:</strong> Correlation does not prove one thing causes the other.</div>
+
+  <h3 id="regression">8. Linear regression (simple and multiple)</h3>
+  <p><strong>Use when:</strong> you want to predict a numeric outcome from one predictor (simple) or several (multiple).</p>
+  <ol>
+    <li><strong>Analyze</strong> → <strong>Regression</strong> → <strong>Linear</strong>.</li>
+    <li>Outcome into <strong>Dependent</strong>, predictor(s) into <strong>Independent(s)</strong>.</li>
+    <li>For multiple regression, click <strong>Statistics</strong> and tick <strong>Collinearity diagnostics</strong>. Continue, then <strong>OK</strong>.</li>
+  </ol>
+  <p><strong>Read three tables:</strong></p>
+  <ul>
+    <li><strong>Model Summary:</strong> R Square is the share of the outcome explained by your predictors.</li>
+    <li><strong>ANOVA:</strong> Sig. below .05 means the model predicts better than chance.</li>
+    <li><strong>Coefficients:</strong> B shows how much the outcome changes per one-unit rise in the predictor. Sig. shows which predictors matter.</li>
+  </ul>
+  <p><strong>Report:</strong> The model was significant, F(df, df) = __, p = __, R² = __. Age significantly predicted score (B = __, p = __).</p>
+  <div class="tip"><strong>Tip:</strong> In multiple regression, a VIF above 10 (or Tolerance below .1) means your predictors overlap too much.</div>
+
+  <h2>PART B: NON-PARAMETRIC TESTS</h2>
+  <div class="tip"><strong>Use these when:</strong> data is not normal, the sample is very small, the data is ranked (1st, 2nd, 3rd) or the variables are categories.</div>
+
+  <h3 id="mann-whitney">9. Mann-Whitney U (partner of the independent t-test)</h3>
+  <ol>
+    <li><strong>Analyze</strong> → <strong>Nonparametric Tests</strong> → <strong>Legacy Dialogs</strong> → <strong>2 Independent Samples</strong>.</li>
+    <li>Outcome into <strong>Test Variable List</strong>, grouping variable into <strong>Grouping Variable</strong>, click <strong>Define Groups</strong>.</li>
+    <li>Tick <strong>Mann-Whitney U</strong>, then <strong>OK</strong>.</li>
+  </ol>
+  <p><strong>Read:</strong> Asymp. Sig. (2-tailed) below .05 means the groups differ. Check the <strong>Ranks</strong> table for the group with the higher mean rank.</p>
+  <p><strong>Report:</strong> Scores differed significantly between groups, U = __, Z = __, p = __.</p>
+
+  <h3 id="wilcoxon">10. Wilcoxon signed-rank (partner of the paired t-test)</h3>
+  <ol>
+    <li><strong>Analyze</strong> → <strong>Nonparametric Tests</strong> → <strong>Legacy Dialogs</strong> → <strong>2 Related Samples</strong>.</li>
+    <li>Move the before and after variables into <strong>Test Pairs</strong>, tick <strong>Wilcoxon</strong>, click <strong>OK</strong>.</li>
+  </ol>
+  <p><strong>Read:</strong> Asymp. Sig. (2-tailed) below .05 means the scores changed.</p>
+  <p><strong>Report:</strong> Scores changed significantly after training, Z = __, p = __.</p>
+
+  <h3 id="kruskal">11. Kruskal-Wallis (partner of one-way ANOVA)</h3>
+  <ol>
+    <li><strong>Analyze</strong> → <strong>Nonparametric Tests</strong> → <strong>Legacy Dialogs</strong> → <strong>K Independent Samples</strong>.</li>
+    <li>Outcome into <strong>Test Variable List</strong>, grouping variable into <strong>Grouping Variable</strong>.</li>
+    <li>Click <strong>Define Range</strong> (minimum and maximum group codes), tick <strong>Kruskal-Wallis H</strong>, click <strong>OK</strong>.</li>
+  </ol>
+  <p><strong>Read:</strong> Asymp. Sig. below .05 means at least one group differs. To find which, run Mann-Whitney U on each pair and use a stricter limit: divide .05 by the number of pairs (Bonferroni).</p>
+  <p><strong>Report:</strong> Scores differed across groups, H(df) = __, p = __.</p>
+
+  <h3 id="friedman">12. Friedman test (partner of repeated measures ANOVA)</h3>
+  <ol>
+    <li><strong>Analyze</strong> → <strong>Nonparametric Tests</strong> → <strong>Legacy Dialogs</strong> → <strong>K Related Samples</strong>.</li>
+    <li>Move all time-point columns into <strong>Test Variables</strong>, tick <strong>Friedman</strong>, click <strong>OK</strong>.</li>
+  </ol>
+  <p><strong>Read:</strong> Asymp. Sig. below .05 means scores changed across time points.</p>
+  <p><strong>Report:</strong> Scores differed over time, χ²(df) = __, p = __.</p>
+
+  <h3 id="spearman">13. Spearman correlation (partner of Pearson)</h3>
+  <ol>
+    <li><strong>Analyze</strong> → <strong>Correlate</strong> → <strong>Bivariate</strong>.</li>
+    <li>Move both variables across, untick Pearson, tick <strong>Spearman</strong>, click <strong>OK</strong>.</li>
+  </ol>
+  <p><strong>Read:</strong> Same as Pearson. The coefficient is called rho (ρ).</p>
+  <p><strong>Report:</strong> Age and score were positively correlated, ρ = __, p = __.</p>
+
+  <h3 id="chi-square">14. Chi-square tests (categorical data)</h3>
+  <p><strong>A. Test of independence:</strong> are two categorical variables related (for example, Gender and Pass/Fail)?</p>
+  <ol>
+    <li><strong>Analyze</strong> → <strong>Descriptive Statistics</strong> → <strong>Crosstabs</strong>.</li>
+    <li>One variable into <strong>Row(s)</strong>, the other into <strong>Column(s)</strong>.</li>
+    <li><strong>Statistics</strong>: tick <strong>Chi-square</strong> and <strong>Phi and Cramer's V</strong>. Continue.</li>
+    <li><strong>Cells</strong>: tick <strong>Expected</strong> and <strong>Row</strong> percentages. Continue, then <strong>OK</strong>.</li>
+  </ol>
+  <p><strong>Read:</strong></p>
+  <ul>
+    <li>Check the footnote: no more than 20% of cells should have an expected count below 5.</li>
+    <li>Use the <strong>Pearson Chi-Square</strong> row. For a 2x2 table, use <strong>Continuity Correction</strong>. If the footnote assumption fails, use <strong>Fisher's Exact Test</strong>.</li>
+    <li>Sig. below .05 means the variables are related. Cramér's V shows strength (about .1 small, .3 medium, .5 large).</li>
+  </ul>
+  <p><strong>Report:</strong> Gender and pass status were significantly associated, χ²(df, N = __) = __, p = __, V = __.</p>
+
+  <p><strong>B. Goodness of fit:</strong> do the categories occur equally often, or as expected?</p>
+  <ol>
+    <li><strong>Analyze</strong> → <strong>Nonparametric Tests</strong> → <strong>Legacy Dialogs</strong> → <strong>Chi-square</strong>.</li>
+    <li>Move your categorical variable across. Choose <strong>All categories equal</strong> or type your expected values, then <strong>OK</strong>.</li>
+  </ol>
+  <p><strong>Read:</strong> Asymp. Sig. below .05 means the counts differ from what was expected.</p>
+
+  <h3 id="mcnemar">15. McNemar test (paired categories)</h3>
+  <p><strong>Use when:</strong> the same people answer a yes/no question twice (for example, before and after a lecture).</p>
+  <ol>
+    <li><strong>Analyze</strong> → <strong>Descriptive Statistics</strong> → <strong>Crosstabs</strong>.</li>
+    <li>Put the "before" variable in Rows and "after" in Columns.</li>
+    <li><strong>Statistics</strong>: tick <strong>McNemar</strong>. Continue, then <strong>OK</strong>.</li>
+  </ol>
+  <p><strong>Read:</strong> Sig. below .05 means the proportion changed between the two times.</p>
+
+  <h2>Parametric vs non-parametric: quick summary</h2>
+  <table>
+    <tr><th></th><th>Parametric</th><th>Non-parametric</th></tr>
+    <tr><td>Data</td><td>Numeric, roughly normal</td><td>Any shape, ranks or categories</td></tr>
+    <tr><td>Compares</td><td>Means</td><td>Ranks or counts</td></tr>
+    <tr><td>Power</td><td>Stronger when assumptions are met</td><td>Safer when they are not</td></tr>
+    <tr><td>Sample size</td><td>Prefers larger samples</td><td>Works with small samples</td></tr>
+  </table>
+
+  <hr>
+  <p><a href="lesson7.html">← Lesson 7</a> | <a href="index.html">Home</a></p>
+
+  <footer>
+    <p>© 2026 Hatim. All rights reserved. Learn SPSS with Hatim.</p>
+  </footer>
+</body>
+</html>
